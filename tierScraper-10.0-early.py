@@ -51,7 +51,7 @@ def main(args):
     # Output
     sortedTier = {k: rosterTier[k] for k in sorted(rosterTier)}
     for key, value in sortedTier.items():
-        print("{}, {}".format(key, value))
+        print("{} {}".format(key, value))
 
 
 
@@ -68,7 +68,8 @@ def queryArmory(url):
             charJson = json.loads(line.partition('characterProfileInitialState = ')[2].rstrip(";"))
             break
 
-#    print(json.dumps(charJson, indent=4))
+#    print(json.dumps(charJson['character'], indent=4))
+    averageItemLevel = charJson['character']['averageItemLevel']
 
     tierSlots = [
         "chest",
@@ -90,7 +91,7 @@ def queryArmory(url):
             #print(json.dumps(out, indent=4))
 
     #print("{}: {}".format(charName, setCount))
-    return {charName: setCount}
+    return {charName: {"Tier Set Bonus": setCount, "Average Item Level": averageItemLevel}}
 
 
 if __name__ == "__main__":
