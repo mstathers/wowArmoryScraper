@@ -58,10 +58,11 @@ def main(args):
 def queryArmory(url):
     encodedCharName = urllib.parse.urlparse(url).path.split('/')[-1]
     charName = urllib.parse.unquote(encodedCharName)
-    r = http.request('GET', url)
-    if r.raise_for_status():
-        print(r.raise_for_status())
-        return 1
+    try:
+        r = http.request('GET', url)
+        r.raise_for_status()
+    except:
+        return {charName: "?"}
 
     for line in r.text.split("\n"):
         if 'characterProfileInitialState = ' in line:
