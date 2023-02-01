@@ -33,6 +33,7 @@ def main(args):
             "https://worldofwarcraft.com/en-us/character/us/elune/Vancleef",
             "https://worldofwarcraft.com/en-us/character/us/elune/Virusgt",
             "https://worldofwarcraft.com/en-us/character/us/elune/Wangchi",
+            "https://worldofwarcraft.com/en-us/character/us/elune/Strozzoun",
         ]
         roster.sort()
 
