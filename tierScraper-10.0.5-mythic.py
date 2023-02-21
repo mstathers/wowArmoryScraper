@@ -16,6 +16,7 @@ def main() -> None:
         {"name":"Mayday", "realm":"gilneas"},
         {"name":"Murfwyrm", "realm":"elune"},
         {"name":"Murfbot", "realm":"elune"},
+        {"name":"Shale", "realm":"gilneas"},
         {"name":"Duero", "realm":"sargeras"},
         {"name":"Dochollidày", "realm":"elune"},
         {"name":"Aya", "realm":"elune"},
