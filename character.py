@@ -31,7 +31,7 @@ class character:
                 break
 
         if not charJson:
-            raise Exception("Characater information not found.")
+            raise Exception("Character information not found.")
 
         return charJson
 
