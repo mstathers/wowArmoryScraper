@@ -115,6 +115,49 @@ class character:
         return {self.name: {"Tier Set Bonus": setCount, "Average Item Level": self.itemLevel}}
 
 
+    def tierBonuses111(self) -> dict:
+        if 'character' not in self.characterJson:
+            return {self.name: "?"}
+
+
+        TIER_SLOTS = {
+            "chest",
+            "head",
+            "shoulder",
+            "hand",
+            "leg"
+        }
+
+        TIER_SET_IDS = {
+            1867,
+            1868,
+            1869,
+            1870,
+            1871,
+            1872,
+            1873,
+            1874,
+            1875,
+            1876,
+            1877,
+            1878,
+            1879
+        }
+
+
+        setCount = 0
+        for slot in TIER_SLOTS:
+            if setCount > 0:
+                break
+            if "set" in self.characterJson['character']['gear'][slot]:
+                if self.characterJson['character']['gear'][slot]['set']['item_set']['id'] in TIER_SET_IDS:
+                    for index in range(len(self.characterJson['character']['gear'][slot]['set']['effects'])):
+                        if "is_active" in self.characterJson['character']['gear'][slot]['set']['effects'][index]:
+                            setCount = self.characterJson['character']['gear'][slot]['set']['effects'][index]['required_count']
+
+        return {self.name: {"Tier Set Bonus": setCount, "Average Item Level": self.itemLevel}}
+
+
 #pitza = character(name="pitza", realm="elune")
 
 #print(pitza.name)
